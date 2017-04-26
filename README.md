@@ -16,14 +16,12 @@
 * A footer, sticked to the bottom of the page;
 
 ## Functional Requirements:
-1. Basket counter
-Basket counter should display the number of items added to the basket;
+1. Basket counter should display the number of items added to the basket;
 - In case no items are added, it should read "Basket: empty";
 - In case there is one item added, it should read "Basket: 1 item";
 - In case there is more than one item added, it should read "Basket: x items" - where x is the number of items;
 
-2. Basket Total
-Basket total should be the sum of added to basket product prices;
+2. Basket Total should be the sum of added to basket product prices;
 - In case no items are added, it should read "Total: $0.00";
 
 3. Product - Add to Basket
