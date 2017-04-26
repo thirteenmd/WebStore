@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>iBuy</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+      .text-footer{
+         color:#9d9d9d;
+         text-align:center;
+      }
+      .products{
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      h3{
+        color: #FFBF00;
+      }
+      body{ 
+        padding-bottom: 80px; 
+      }
+      #footer{
+        position: fixed;
+        bottom: 0;
+        width: 90%;
+        margin-left: 5%;
+      }
+      .text-header{
+        font-weight:bold;
+        font-style: italic;
+        font-size:medium;
+        margin: 0px;
+      }
+    </style>
+
+    <script type="text/javascript" defer>
+      var cartTotalCost = 0;
+      var items = 0;
+
+      // UPDATE ITEMS
+      function updateItems(){
+        switch(items){
+          case 0:
+            document.getElementById("numberOfItems").innerHTML = "Basket: empty";
+            break;
+          case 1:
+            document.getElementById("numberOfItems").innerHTML = "Basket: 1 item";
+            break;
+          default:
+            document.getElementById("numberOfItems").innerHTML = "Backet: " + items + " items";
+        }
+      }
+      // END UPDATE ITEMS
+
+      // ADD TO CART
+      function addToCart(price, btnId){
+        items += 1;
+        updateItems();
+
+        cartTotalCost += price;
+        document.getElementById("totalPrice").innerHTML = "Total: $" + cartTotalCost.toFixed(2);
+
+        document.getElementById(btnId).style.background = "#800000";
+        document.getElementById(btnId).style.color = "#ffffff";
+        document.getElementById(btnId).innerHTML = "Remove from basket";
+        var x = document.getElementById(btnId).onclick;
+        console.log(x);
+        document.getElementById(btnId).onclick = function onclick(event) { removeFromCart(price,btnId) };
+        var x = document.getElementById(btnId).onclick;
+        console.log(x);
+
+       }
+      // END ADD TO CART
+
+      // REMOVE FROM CART
+      function removeFromCart(price, btnId){
+        items -= 1;
+        updateItems();
+
+        cartTotalCost -= price;
+        document.getElementById("totalPrice").innerHTML = "Total: $" + cartTotalCost.toFixed(2);
+
+        document.getElementById(btnId).style.background="#FFBF00";
+        document.getElementById(btnId).style.color = "#000000";
+        document.getElementById(btnId).innerHTML = "Add to basket";
+        var x = document.getElementById(btnId).onclick;
+        console.log(x);
+        document.getElementById(btnId).onclick = function onclick(event) { addToCart(price,btnId); };
+        var x = document.getElementById(btnId).onclick;
+        console.log(x);
+
+      }
+      // END REMOVE FROM CART
+
+    </script>
+
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <div class="container" style="margin-top: 10px;">
+      <a href="index.html" class="pull-left"><img src="assets/images/logo.png"></a> 
+      <div class="pull-right">
+        <p class="text-header" id="totalPrice">Total: $0.00</p>
+        <p class="text-header" id="numberOfItems">Basket: empty</p>
+      </div>
+    </div>
+
+
+    <!-- NAVIGATION BAR -->
+    <div class="navbar-wrapper" style="margin-top: 10px">
+      <div class="container">
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">All Products</a></li>
+                <li><a href="#about">Category I</a></li>
+                <li><a href="#contact">Category II</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- END NAVIGATION BAR -->
+
+    <!-- PRODUCT LIST -->
+    <div class="container">
+      <div class="row products">
+        <div class="col-md-4 col-sm-6 col-xs-12 ">
+          <img src="assets/images/thumb140.png" alt="Img1" class="img-rounded" style="margin-top: 10px">
+          <h4>iPhone 7 Plus, 128 GB</h4>
+          <h3 style="margin-top: 5px">$859.99</h3>
+          <a href="#" class="btn btn-default" style="background-color: #FFBF00;" id='btn1' onclick="addToCart(859.99, 'btn1')">Add to basket</a>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <img src="assets/images/thumb140.png" alt="Img2" class="img-rounded" style="margin-top: 10px">
+          <h4>iPad Pro 256 GB</h4>
+          <h3 style="margin-top: 5px">$699.99</h3>
+          <a href="#" class="btn btn-default" style="background-color: #FFBF00;" id='btn2' onclick="addToCart(699.99, 'btn2')">Add to basket</a>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <img src="assets/images/thumb140.png" alt="Img3" class="img-rounded" style="margin-top: 10px">
+          <h4>Macbook Pro 15'</h4>
+          <h3 style="margin-top: 5px">$1959.99</h3>
+          <a href="#" class="btn btn-default" style="background-color: #FFBF00;" id='btn3' onclick="addToCart(1959.99, 'btn3')">Add to basket</a>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <img src="assets/images/thumb140.png" alt="Img4" class="img-rounded" style="margin-top: 10px">
+          <h4>iWatch Series 2</h4>
+          <h3 style="margin-top: 5px">$859.99</h3>
+          <a href="#" class="btn btn-default" style="background-color: #FFBF00;" id='btn4' onclick="addToCart(859.99, 'btn4')">Add to basket</a>
+        </div>
+      </div>
+    </div>
+    <!-- END PRODUCT LIST -->
+
+    <!-- FOOTER -->
+    <div class="navbar navbar-inverse navbar-fixed-bottom" id="footer">
+      <div class="container">
+        <p class="text-footer">
+          Cojocaru Andreea - Cristina
+        </p>
+        <p class="text-footer">
+          2017
+        </p>
+      </div>
+    </div>
+    <!-- END FOOTER -->
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+  </body>
+</html>
