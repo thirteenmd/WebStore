@@ -12,7 +12,7 @@
 * A list of products containing product image, title, price and Call To Action button (add to basket / remove from basket);
 * Add to basket and Remove from basket must have different styles;
 
-###Footer
+### Footer
 * A footer, sticked to the bottom of the page;
 
 ## Functional Requirements:
