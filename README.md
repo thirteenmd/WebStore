@@ -1,21 +1,21 @@
-#Template for a web store.
-#Page components outline:
+# Template for a web store.
+# Page components outline:
 
-##Header
-*store logo - aligned on the left side of the page
-*Basket & Total - aligned on the right side of the page
+## Header
+* store logo - aligned on the left side of the page
+* Basket & Total - aligned on the right side of the page
 
 ##Navigation menu
-*a list of links, the first link should have an active style
+* a list of links, the first link should have an active style
 
 ##Product List
-*A list of products containing product image, title, price and Call To Action button (add to basket / remove from basket);
-*Add to basket and Remove from basket must have different styles;
+* A list of products containing product image, title, price and Call To Action button (add to basket / remove from basket);
+* Add to basket and Remove from basket must have different styles;
 
 ##Footer
-*A footer, sticked to the bottom of the page;
+* A footer, sticked to the bottom of the page;
 
-#Functional Requirements:
+# Functional Requirements:
 1. Basket counter
 Basket counter should display the number of items added to the basket;
 - In case no items are added, it should read "Basket: empty";
